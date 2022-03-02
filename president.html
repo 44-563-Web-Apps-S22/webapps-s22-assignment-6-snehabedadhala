@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html>
-<title>President Page</title>
+    <head>
+        <title>President Page</title>
+    </head>
+    <style>
+        label {
+            display: inline-block;
+            width: 200px;
+        }
+    
+        p {
+            background-color: rgb(204, 172, 204);
+            color: white;
+            display: inline;
+        }
+    
+        p:hover {
+            background-color: rgb(223, 240, 162);
+            color: black;
+            display: inline;
+        }
+    
+        h2 {
+            background-color: rgb(230, 162, 207);
+            color: white;
+            display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        </style>
 <body>
 <h1>President guess by Sneha Bedadhala</h1>
 <h2>Getting input</h2>
@@ -12,7 +39,7 @@
     <label for="form1_guesspresident">Guess the president</label>
     <input type ="text" id="form1_guesspresident" name="form1_guesspresident" autofocus> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" onclick="checkGuess()" id="in" value="Check the guess">
 </form>
 
 
@@ -24,6 +51,7 @@
 <script> 
 let correct = 0;
 let wrong = 0;
+let c = 0;
 console.log("Getting form values")
 function checkGuess (){
     secretname = document.getElementById("form1_secretpresidentname").value
@@ -32,10 +60,19 @@ function checkGuess (){
     if(secretname == guessname){
         correct = correct + 1;
         alert("You got it right")
+        c = 0
     }
     else{
         alert("Wrong President")
         wrong = wrong + 1;
+        c = c+1
+        console.log(c)
+    }
+    if(c == 3){
+        document.getElementById("in").onclick = lock
+    }
+    function lock(){
+            alert("Sorry, game over.")
     }
     out.innerHTML = "correct = "+correct +"   wrong = " + wrong;
 }
