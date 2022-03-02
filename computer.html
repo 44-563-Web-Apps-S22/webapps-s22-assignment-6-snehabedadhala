@@ -37,28 +37,26 @@
 let my_Computer = {}
 out = document.getElementById("result")
 function orderComputer() {
-    
     console.log("Getting form values")
     extra = document.getElementById("check_1").checked
     mouse = document.getElementById("check_2").checked
     cell = document.getElementById("check_3").checked
-    if (extra) {
+    if(extra) {
         my_Computer.extra = true
-    }else{
+    }
+    else{
         my_Computer.extra = false
     }
     if (mouse) {
         my_Computer.mouse = true
     }
-    else
-    {
+    else{
         my_Computer.mouse = false
     }
-    if (cell) {
+    if(cell){
         my_Computer.cell = true
     }
-    else
-    {
+    else{
         my_Computer.cell=false
     }
     document.getElementById("result").innerHTML = "extra: " + my_Computer.extra + " mouse: " + my_Computer.mouse + " cell: " + my_Computer.cell
